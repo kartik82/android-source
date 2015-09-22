@@ -36,8 +36,12 @@ public class Methods extends Object {
 		 * Your work goes here
 		 ************************************************/
 
-		// You are free to modify the return statement
-		return false;
+		if (original == false) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
 
 	/*
@@ -60,6 +64,11 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = -numbers[i];
+		}
+		
 	}
 
 
@@ -91,8 +100,20 @@ public class Methods extends Object {
 		 * Your work goes here
 		 ************************************************/
 
-		// You are free to modify the return statement
-		return new boolean [0];
+		boolean[] arrBool = new boolean[someNumbers.length];
+
+		for (int j = 0; j < someNumbers.length; j++) {
+
+			if (someNumbers[j] >= floor) {
+				arrBool[j] = true;
+			} else {
+				arrBool[j] = false;
+			}
+
+		}
+
+		return arrBool;
+
 	}
 
 	/*
@@ -118,8 +139,28 @@ public class Methods extends Object {
 		 * Your work goes here
 		 ************************************************/
 
-		// You are free to modify the return statement
-		return new int[2];
+		int[] arrMinMax = new int[2];
+
+		int minVal = someNumbers[0];
+		int maxVal = someNumbers[0];
+
+		for (int x = 0; x < someNumbers.length; x++ ) {
+
+			if (someNumbers[x] < minVal) {
+				minVal = someNumbers[x];
+			}
+
+			if (someNumbers[x] > maxVal) {
+				maxVal = someNumbers[x];
+			}
+
+		}
+
+		arrMinMax[0] = minVal;
+		arrMinMax[1] = maxVal;
+
+		return arrMinMax;
+
 	}
 
 
