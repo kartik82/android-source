@@ -15,6 +15,10 @@ class PopSong extends Song {
 	 *	Create the first PopSong constructor
 	/************************************************/
 
+	PopSong() {
+		this(new Ensemble("Lifehouse"), "You and Me", 2006, 62);
+	}
+
 	/*
 	 * PopSong
 	 * 
@@ -27,6 +31,11 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the second PopSong constructor
 	/************************************************/
+
+	PopSong(Ensemble ensemble, String title) {
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+	}
 
 	/*
 	 * PopSong
@@ -42,6 +51,12 @@ class PopSong extends Song {
 	 *	Create the third PopSong constructor
 	/************************************************/
 
+	PopSong(Ensemble ensemble, String title, int yearReleased) {
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+		this.mYearReleased = yearReleased;	
+	}
+
 	/*
 	 * PopSong
 	 *
@@ -55,4 +70,12 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the fourth PopSong constructor
 	/************************************************/
+
+	PopSong(Ensemble ensemble, String title, int yearReleased, int weeksOnBillboard) {
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+		this.mYearReleased = yearReleased;
+		this.mWeeksOnBillboard = weeksOnBillboard;		
+	}
+
 }

@@ -20,6 +20,10 @@ class Song extends Object {
 	 *	Create the first Song constructor
 	/************************************************/
 
+	Song() {
+		this(new Ensemble("Linkin Park"), "In The End", 2000);
+	}
+
 	/*
 	 * Song
 	 *
@@ -33,6 +37,11 @@ class Song extends Object {
 	 *	Create the second Song constructor
 	/************************************************/
 
+	Song(Ensemble ensemble, String title) {
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+	}
+
 	/*
 	 * Song
 	 *
@@ -44,4 +53,11 @@ class Song extends Object {
 	 *	ASSIGNMENT:
 	 *	Create the third Song constructor
 	/************************************************/
+
+	Song(Ensemble ensemble, String title, int yearReleased) {
+		this.mEnsemble = ensemble;
+		this.mTitle = title;
+		this.mYearReleased = yearReleased;
+	}
+
 }
