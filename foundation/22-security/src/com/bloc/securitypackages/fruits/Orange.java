@@ -1,11 +1,11 @@
-package com.bloc.securitypackages.colors;
+package com.bloc.securitypackages.fruits;
 
 /************************************************
  *	YOU MAY MODIFY THIS FILE AND/OR ITS LOCATION
 /************************************************/
 
-public class Orange extends Color {
+public class Orange extends Fruit {
 	public Orange() {
-		super(Orange.class.getSimpleName(), 255, 165, 0);
+		super("Orange", 130, new com.bloc.securitypackages.colors.Orange(), .21d);
 	}
 }
