@@ -15,7 +15,9 @@ public class Main extends Object {
 		 *	Thread, use the ImageGetter class.
 		/************************************************/
 
-		try {
+		new ImageGetter("https://www.google.com/images/srpr/logo11w.png", true).start();
+
+/*		try {
 			File existingImage = new File("google_logo.png");
 			if (existingImage.exists()) {
 				existingImage.delete();
@@ -27,7 +29,7 @@ public class Main extends Object {
 			if ("/".equals(System.getProperties().getProperty("file.separator"))) {
 				Runtime.getRuntime().exec("open google_logo.png");
 			} else {
-				Runtime.getRuntime().exec("google_logo.png");
+				Runtime.getRuntime().exec("start google_logo.png");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -35,7 +37,8 @@ public class Main extends Object {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
-		}
+		}*/
+
 
 		/************************************************
 		 *	ASSIGNMENT:
