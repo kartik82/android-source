@@ -14,12 +14,28 @@ public class RecursionUtils extends Object {
 	 *
 	 * Hint: your base case may be a comparison of 2 numbers
 	 */
+
 	public static final int findMaxRecursively(List<Integer> numbers) {
 		/************************************************
 	 	 *	ASSIGNMENT:
 	 	 *	Implement this method, the return value must
 	 	 *	change
 		/************************************************/
-		return 0;
+		
+		int maxNum = numbers.get(0);
+
+		if (numbers.size() == 1) {
+			return maxNum;
+		}
+
+		List<Integer> subNumbersList = numbers.subList(1, numbers.size());
+
+		if (numbers.get(0) > findMaxRecursively(subNumbersList)) {
+			return maxNum;
+		} else {
+			return findMaxRecursively(subNumbersList);
+		}
+
+
 	}
 }
