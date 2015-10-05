@@ -5,7 +5,7 @@
 
     <TextView
         android:id="@+id/tv_rss_item_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New York Attacked By Giant Squid"
         android:textSize="18sp"
@@ -13,10 +13,10 @@
 
     <TextView
         android:id="@+id/tv_rss_item_feed_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_rss_item_title"
-        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/tv_rss_item_title"
+        android:layout_marginTop="2dp"
         android:text="New York Times"
         android:singleLine="true"
         android:textSize="14sp"
