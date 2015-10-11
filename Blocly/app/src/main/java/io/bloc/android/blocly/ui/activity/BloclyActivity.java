@@ -13,6 +13,10 @@ import io.bloc.android.blocly.R;
  */
 
 public class BloclyActivity extends Activity {
+
+
+    private TextView myTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +25,7 @@ public class BloclyActivity extends Activity {
                 BloclyApplication.getSharedDataSource().getFeeds().get(0).getTitle(),
                 Toast.LENGTH_LONG).show();
 
-        TextView myTextView = (TextView)findViewById(R.id.myTextView);
+        myTextView = (TextView)findViewById(R.id.myTextView);
         myTextView.setText(BloclyApplication.getSharedDataSource().getFeeds().get(0).getTitle());
 
     }
