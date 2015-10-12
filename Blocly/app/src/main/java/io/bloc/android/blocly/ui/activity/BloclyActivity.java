@@ -1,5 +1,6 @@
 package io.bloc.android.blocly.ui.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -151,6 +152,15 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
             return true;
         }
         Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+
+        if (item.getTitle().equals("Share")) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, itemAdapter.getExpandedItem().getTitle());
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -222,9 +232,17 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         }
         if (positionToContract > -1) {
             itemAdapter.notifyItemChanged(positionToContract);
+
+            menu.getItem(0).setEnabled(false);
+            menu.getItem(0).getIcon().setAlpha(0);
+
         }
         if (positionToExpand > -1) {
             itemAdapter.notifyItemChanged(positionToExpand);
+
+            menu.getItem(0).setEnabled(true);
+            menu.getItem(0).getIcon().setAlpha(255);
+
         } else {
             return;
         }
