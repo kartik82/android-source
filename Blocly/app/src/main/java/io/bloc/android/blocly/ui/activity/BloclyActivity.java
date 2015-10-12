@@ -21,7 +21,7 @@ import io.bloc.android.blocly.ui.adapter.NavigationDrawerAdapter;
  * Created by Kartik on 04-Oct-15.
  */
 
-public class BloclyActivity extends ActionBarActivity implements NavigationDrawerAdapter.NavigationDrawerAdapterDelegate {
+public class BloclyActivity extends ActionBarActivity implements NavigationDrawerAdapter.NavigationDrawerAdapterDelegate, ItemAdapter.ItemAdapterDelegate {
 
     private ItemAdapter itemAdapter;
     private ActionBarDrawerToggle drawerToggle;
@@ -37,6 +37,7 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         setSupportActionBar(toolbar);
 
         itemAdapter = new ItemAdapter();
+        itemAdapter.setDelegate(this);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_activity_blocly);
 
@@ -77,6 +78,31 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         }
         return super.onOptionsItemSelected(item);
     }
+
+     /*
+      * ItemAdapterDelegate
+      */
+
+    @Override
+    public void didExpandContent(ItemAdapter adapter, boolean isExpanded) {
+        Toast.makeText(this, "Expanded: " + isExpanded, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void didVisitSite(ItemAdapter adapter, boolean isVisited) {
+        Toast.makeText(this, "Visited: " + isVisited, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void didFavoriteItem(ItemAdapter adapter, boolean isFavorited) {
+        Toast.makeText(this, "Favorited: " + isFavorited, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void didArchiveItem(ItemAdapter adapter, boolean isArchived) {
+        Toast.makeText(this, "Archived: " + isArchived, Toast.LENGTH_SHORT).show();
+    }
+
 
      /*
       * NavigationDrawerAdapterDelegate
