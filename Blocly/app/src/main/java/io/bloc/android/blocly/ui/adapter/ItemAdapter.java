@@ -185,6 +185,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemAdapterVie
             if (view == itemView) {
                 if (getDelegate() != null) {
                     getDelegate().onItemClicked(ItemAdapter.this, rssItem);
+                    Log.v(TAG, "Position: " + getAdapterPosition());
                 }
             } else {
                 Toast.makeText(view.getContext(), "Visit " + rssItem.getUrl(), Toast.LENGTH_SHORT).show();

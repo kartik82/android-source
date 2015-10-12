@@ -36,6 +36,7 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
     private NavigationDrawerAdapter navigationDrawerAdapter;
     private Menu menu;
     private View overflowButton;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         itemAdapter.setDataSource(this);
         itemAdapter.setDelegate(this);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_activity_blocly);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_activity_blocly);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -219,7 +220,9 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         }
         if (positionToExpand > -1) {
             itemAdapter.notifyItemChanged(positionToExpand);
+            recyclerView.smoothScrollBy(0, recyclerView.getLayoutManager().findViewByPosition(positionToExpand).getTop());
         }
+
     }
 
 }
