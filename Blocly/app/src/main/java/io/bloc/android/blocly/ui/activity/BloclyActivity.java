@@ -2,6 +2,8 @@ package io.bloc.android.blocly.ui.activity;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -13,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.bloc.android.blocly.BloclyApplication;
 import io.bloc.android.blocly.R;
@@ -33,6 +37,8 @@ import io.bloc.android.blocly.ui.adapter.NavigationDrawerAdapter;
  */
 
 public class BloclyActivity extends ActionBarActivity implements NavigationDrawerAdapter.NavigationDrawerAdapterDelegate, ItemAdapter.DataSource, ItemAdapter.Delegate {
+
+    private static String TAG = "Blocly Activity";
 
     private RecyclerView recyclerView;
     private ItemAdapter itemAdapter;
@@ -142,6 +148,31 @@ public class BloclyActivity extends ActionBarActivity implements NavigationDrawe
         navigationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         navigationRecyclerView.setItemAnimator(new DefaultItemAnimator());
         navigationRecyclerView.setAdapter(navigationDrawerAdapter);
+
+        Intent intentWeb = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        List<ResolveInfo> webList = getApplicationContext().getPackageManager().queryIntentActivities(intentWeb, PackageManager.MATCH_ALL);
+
+        for(ResolveInfo infos : webList) {
+            String name = infos.activityInfo.applicationInfo.loadLabel(getPackageManager()).toString();
+            Log.i(TAG, "Web Application: " + name);
+        }
+
+        Intent intentDial = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:12345678"));
+        List<ResolveInfo> dialList = getApplicationContext().getPackageManager().queryIntentActivities(intentDial, PackageManager.MATCH_ALL);
+
+        for(ResolveInfo infos : dialList) {
+            String name = infos.activityInfo.applicationInfo.loadLabel(getPackageManager()).toString();
+            Log.i(TAG, "Dialler Application: " + name);
+        }
+
+        Intent intentEmail = new Intent(Intent.ACTION_SENDTO);
+        intentEmail.setData(Uri.parse("mailto:"));
+        List<ResolveInfo> emailList = getApplicationContext().getPackageManager().queryIntentActivities(intentDial, PackageManager.MATCH_ALL);
+
+        for(ResolveInfo infos : emailList) {
+            String name = infos.activityInfo.applicationInfo.loadLabel(getPackageManager()).toString();
+            Log.i(TAG, "Email Application: " + name);
+        }
 
     }
 
