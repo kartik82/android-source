@@ -97,7 +97,6 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
                     ? View.VISIBLE : View.GONE);
 
             if (position < NavigationOption.values().length) {
-                // #5
                 int[] titleTexts = new int[] {R.string.navigation_option_inbox,
                         R.string.navigation_option_favorites,
                         R.string.navigation_option_archived};
